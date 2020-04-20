@@ -23,7 +23,8 @@ import spacy
 from nltk import WordNetLemmatizer
 from nltk.stem.snowball import EnglishStemmer
 from spacy.cli.download import download as spacy_download
-from spacy.lang.en import LEMMA_EXC, LEMMA_INDEX, LEMMA_RULES
+#from spacy.lang.en import LEMMA_EXC, LEMMA_INDEX, LEMMA_RULES
+from spacy.lang.en import English
 from spacy.lemmatizer import Lemmatizer
 
 from nlp_architect.utils.generic import license_prompt
@@ -220,7 +221,8 @@ class SpacyInstance:
 
 stemmer = EnglishStemmer()
 lemmatizer = WordNetLemmatizer()
-spacy_lemmatizer = Lemmatizer(LEMMA_INDEX, LEMMA_EXC, LEMMA_RULES)
+#spacy_lemmatizer = Lemmatizer(LEMMA_INDEX, LEMMA_EXC, LEMMA_RULES)
+spacy_lemmatizer = English.Defaults.create_lemmatizer()
 p = re.compile(r"[ \-,;.@&_]")
 
 
